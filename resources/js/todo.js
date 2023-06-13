@@ -8,15 +8,15 @@ $(document).ready(()=>{
 
 
     //CHECK IF LOCALSTORAGE IS AVAILABLE
-    if (localStorage["doneList"].length >= 4) {
+    if (localStorage["doneList"]?.length >= 4) {
         doneList = JSON.parse(localStorage["doneList"])
         refreshDone();
     }
-    if (localStorage["notdoneList"].length >= 4) {
+
+    if (localStorage["notdoneList"]?.length >= 4) {
         notdoneList = JSON.parse(localStorage["notdoneList"])
         refreshNotDone();
     }
-
 
     //Trigger enter click to continue
     $('#todoInput').keypress(function (e) {
