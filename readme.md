@@ -4,8 +4,9 @@ Grüße! Hier die gestellte Testaufgabe von euch!
 
 Zum Installieren:
 ```
+git clone https://github.com/rodistic/to-do_testaufgabe.git
 npm i 
-npm app.js
+node app.js
 ```
 
 Applikation zu erreichen dann unter: http://localhost(:80)
