@@ -1,29 +1,24 @@
 $(document).ready(()=>{
 
+    //Initialize Variables
     window.done = done;
     window.notDone = notDone;
-
-    //Init Lists
-
     var doneList = []
     var notdoneList = []
 
-    if (localStorage["notdoneList"] != null) {
-        console.log( localStorage[ "notdoneList" ] );
-     }
 
     //CHECK IF LOCALSTORAGE IS AVAILABLE
     if (localStorage["doneList"].length >= 4) {
         doneList = JSON.parse(localStorage["doneList"])
         refreshDone();
     }
-
     if (localStorage["notdoneList"].length >= 4) {
         notdoneList = JSON.parse(localStorage["notdoneList"])
         refreshNotDone();
     }
 
-    //Enter click
+
+    //Trigger enter click to continue
     $('#todoInput').keypress(function (e) {
         if (e.which == 13) {
             console.log('[INFO] triggerd Enter button')
@@ -34,21 +29,20 @@ $(document).ready(()=>{
 
     $('#todoButton').click(() => {
         console.log('[INFO] ToDo Add Button pressed')
-        //Hinzufügen Event
+        //Add Event
         //check text value
         if(!$('#todoInput').val()){
             //value is empty
             //place for a warning but not relevant in this application
             console.log('[ERR] Value empty')
         } else {
-            //value is not empty
+            //value is not empty -> lets go
             var text = $('#todoInput').val()
             console.log('[INFO] Value is' + text)
         
 
-        var newObj = text;
         //Push new Object to List
-        notdoneList.push(newObj)
+        notdoneList.push(text)
 
         console.log('[INFO] '+text+' was added to notdoneList')
         console.log(notdoneList)
