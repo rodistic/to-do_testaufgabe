@@ -1,0 +1,139 @@
+html,body{
+    background-color: #232528;
+    overflow: none;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    color: #f1f1f1;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.to-do-container{
+    background-color: #292b2c;
+    margin: 120px auto 0px;
+    width: 80em;
+    padding: 12px 24px;
+    box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
+    border-top:3px solid #7d3237;
+}
+
+.to-do-container h3{
+    text-align: center;
+    font-weight: 100;
+    font-size: 34px;
+    margin: 4px;
+}
+
+.btn-container input[type=text]{
+    display: block;
+    float: right;
+    padding: 7px;
+    border: 1px solid rgba(255, 255, 255, 0.51);
+    background-color: #292b2c;
+    color:#f1f1f1;
+    font-size: 16px;
+    border-radius: 4px 0px 0px 4px;
+}
+
+.btn-container input[type=text]:focus{
+    box-shadow: none;
+    outline: none;
+    border: 1px solid #7d3237;
+}
+
+#clear{
+    margin: 34px auto 24px;
+    float: none !important;
+    border-radius: 5px !important;
+}
+
+.btn-container button,#clear{
+    display: block;
+    float: right;
+    padding: 8px;
+    font-size: 14px;
+    border-radius: 0px 4px 4px 0px;
+    background-color: #b42f39;
+    color:#f1f1f1;
+    border:1px solid rgba(228, 62, 62, 0.795);
+    cursor: pointer;
+    transition: ease 0.5s;
+}
+
+
+
+.btn-container button:hover,#clear:hover{
+    background-color: #b9424c;
+}
+
+
+table,thead{
+    width: 100%;
+    margin: 10px auto;
+    border-collapse: collapse;
+}
+
+th{
+    padding: 12px;
+    width: 50%;
+    border-bottom: solid 1px #f1f1f1;
+}
+th:nth-child(even){
+    border-left: solid 1px #f1f1f1;
+}
+
+td{
+    padding: 12px;
+    vertical-align: top;
+    width: 50%;
+}
+td:nth-child(even){
+    border-left: solid 1px #f1f1f1;
+}
+
+.footer{
+    position: absolute;
+    bottom: 10px;
+    text-align: center;
+    width: 100%;
+}
+
+#notdoneList button{
+    padding: 10px 15px;
+    width: 100%;
+    font-size: 18px;
+    border-radius: 6px;
+    background-color: #b42f39;
+    color: #f1f1f1;
+    border:none;
+    margin-bottom: 10px;
+    transition: ease 0.3s;
+}
+
+#doneList button{
+    padding: 10px 15px;
+    width: 100%;
+    font-size: 18px;
+    border-radius: 6px;
+    background-color: #34a039;
+    color: #f1f1f1;
+    border:none;
+    margin-bottom: 10px;
+    transition: ease 0.3s;
+}
+
+#notdoneList button:hover{
+    background-color: #c0404a;
+    color: #f1f1f1;
+    cursor: pointer;
+}
+
+#doneList button:hover{
+    background-color: #51af56;
+    color: #f1f1f1;
+    cursor: pointer;
+}
+
+.footer p{
+    color: rgba(255, 255, 255, 0.3);
+}

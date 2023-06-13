@@ -1,0 +1,51 @@
+<html>
+    <head>
+        <title>To-Do Liste</title>
+
+        <!--CSS-->
+        <link rel="stylesheet" href="/css/fontawesome.all.min.css">
+        <link rel="stylesheet" href="/css/main.css">
+    </head>
+    <body>
+
+        <script src="/js/JQuery.min.js"></script>
+        <script src="/js/todo.js"></script>
+
+        <div class="to-do-container">
+            <h3>To-Do Liste</h3>
+            <div class="btn-container">
+                <button id="todoButton" >Hinzufügen</button>
+                <input id="todoInput" type="text" placeholder="Text...">
+            </div>
+            <br>
+            <br>
+            <div class="table-container">
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Done</th>
+                            <th>not Done</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td id="doneList"></td>
+                            <td id="notdoneList"></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+
+            <button id="clear">Clear</button>
+
+        </div>
+
+        <div class="footer">
+            <p >To-Do Testaufgabe ROD</p>
+        </div>
+
+        
+    </body>
+</html>
