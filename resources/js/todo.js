@@ -1,11 +1,16 @@
-$(document).ready(()=>{
+
 
     //Initialize Variables
     window.done = done;
     window.notDone = notDone;
-    var doneList = []
-    var notdoneList = []
+    let doneList = []
+    let notdoneList = []
 
+    let realDoneList = document.getElementById('doneList')
+    let realNotDoneList = document.getElementById('notdoneList')
+
+    let todoInput = document.getElementById('todoInput')
+    let todoButton = document.getElementById('todoButton')
 
     //CHECK IF LOCALSTORAGE IS AVAILABLE
     if (localStorage["doneList"]?.length >= 4) {
@@ -19,25 +24,26 @@ $(document).ready(()=>{
     }
 
     //Trigger enter click to continue
-    $('#todoInput').keypress(function (e) {
-        if (e.which == 13) {
+    todoInput.addEventListener('keydown', function (e) {
+        if (e.key == "Enter") {
             console.log('[INFO] triggerd Enter button')
-            $('#todoButton').trigger('click');
+            todoButton.click()
         }
     });
 
+    todoButton.addEventListener("click",newTodoItem)
 
-    $('#todoButton').click(() => {
+    function newTodoItem() {
         console.log('[INFO] ToDo Add Button pressed')
         //Add Event
         //check text value
-        if(!$('#todoInput').val()){
+        if(!todoInput.value){
             //value is empty
             //place for a warning but not relevant in this application
             console.log('[ERR] Value empty')
         } else {
             //value is not empty -> lets go
-            var text = $('#todoInput').val()
+            let text = todoInput.value
             console.log('[INFO] Value is' + text)
         
 
@@ -51,10 +57,10 @@ $(document).ready(()=>{
         refreshNotDone()
 
         //clear input
-        $('#todoInput').val('')
+        todoInput = ""
         }
 
-    })
+    }
 
     function done(id){
 
@@ -62,11 +68,10 @@ $(document).ready(()=>{
 
         //notdone Object was marked as Done
         //getting array index to make sure its unique
-        var i = 0;
+        let i = 0;
         notdoneList.forEach(listItem => {
             if(i == id){
                 //found unique item
-
                 //adding to doneList
                 doneList.push(listItem)
                 refreshDone()
@@ -87,11 +92,10 @@ $(document).ready(()=>{
 
         //notdone Object was marked as Done
         //getting array index to make sure its unique
-        var i = 0;
+        let i = 0;
         doneList.forEach(listItem => {
             if(i == id){
                 //found unique item
-
                 //adding to notdoneList
                 notdoneList.push(listItem)
                 refreshNotDone()
@@ -100,8 +104,6 @@ $(document).ready(()=>{
                 //removing from doneList via Index
                 doneList.splice(id,1);
                 refreshDone()
-                refreshDone()
-                console.log(doneList)
             }
             i++;
         })
@@ -112,8 +114,8 @@ $(document).ready(()=>{
     function refreshDone(){
         //List refresh for DoneList
         console.log('[INFO] refresh doneList!')
-        var newHtml = ""
-        var i = 0;
+        let newHtml = ""
+        let i = 0;
         
         //mush together the new List
         doneList.forEach(listItem => {
@@ -122,7 +124,7 @@ $(document).ready(()=>{
         });
 
         //printing new List
-        $('#doneList').html(newHtml)
+        realDoneList.innerHTML = newHtml;
 
         //saving new data to localstorage
         localStorage["doneList"] = JSON.stringify(doneList)
@@ -131,8 +133,8 @@ $(document).ready(()=>{
     function refreshNotDone(){
         //List refresh for notDoneList
         console.log('[INFO] refresh notdoneList!')
-        var newHtml = ""
-        var i = 0;
+        let newHtml = ""
+        let i = 0;
 
         //mush together the new List
         notdoneList.forEach(listItem => {
@@ -141,14 +143,14 @@ $(document).ready(()=>{
         });
 
         //printing new List
-        $('#notdoneList').html(newHtml)
+        realNotDoneList.innerHTML = newHtml;
 
         //saving new data to localstorage
         localStorage["notdoneList"] = JSON.stringify(notdoneList)
     }
 
 
-    $('#clear').click(()=>{
+    document.getElementById('clear').addEventListener("click", ()=>{
         //clearing both Lists!
         doneList = []
         notdoneList = []
@@ -158,5 +160,3 @@ $(document).ready(()=>{
         refreshNotDone()
     })
 
-
-})
